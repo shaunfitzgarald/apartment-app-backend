@@ -73,16 +73,12 @@ RSpec.describe "Apartments", type: :request do
         }
       }
       post '/apartments', params: apartment_params
-      p "response", response
-      # expect(response.status).to eq(422)
+      # p 'response', response
+      expect(response.status).to eq(422)
       # p "Response Body:", JSON.parse(response.body)
-      # p "Status Code:", response.status
-
+     
       apartment = JSON.parse(response.body)
-      expect(apartment[:street]).to include("can't be blank")
-      # # apartment.valid?
-      # # p "errors", apartment.errors.full_messages
-      # # expect(apartment['errors']['street']).to include("can't be blank")
+      expect(apartment['street']).to include("can't be blank")
     end
 
   end
