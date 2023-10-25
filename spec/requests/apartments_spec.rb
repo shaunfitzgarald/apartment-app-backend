@@ -272,7 +272,7 @@ RSpec.describe "Apartments", type: :request do
         apartment = JSON.parse(response.body)
         expect(apartment['pets']).to include("can't be blank", "is not included in the list")
     end
-    it 'it is not valid if image is empty' do
+    it 'it is not valid if user_id is empty' do
       apartment_params = {
         apartment: {
           street: '1513 Vietnam Drive',
@@ -296,7 +296,7 @@ RSpec.describe "Apartments", type: :request do
         apartment = JSON.parse(response.body)
         expect(apartment['user_id']).to include("can't be blank")
     end
-    it 'it is not valid if user_id is empty' do
+    it 'it is not valid if image is empty' do
       apartment_params = {
         apartment: {
           street: '1513 Vietnam Drive',
