@@ -11,5 +11,6 @@ class Apartment < ApplicationRecord
     validates :pets, presence: true
     validates :pets, inclusion: { in: ['yes', 'no'] }
     validates :image, presence: true
+    validates :user_id, presence: true
 
 end

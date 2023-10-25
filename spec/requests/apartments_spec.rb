@@ -284,6 +284,30 @@ RSpec.describe "Apartments", type: :request do
           bedrooms: 3,
           bathrooms: 2,
           pets: 'yes',
+          image: 'https://unsplash.com/photos/brown-wooden-house-near-green-trees-during-daytime-hEAGekaiJ8g',
+          user_id: nil
+        }
+      }
+        post '/apartments', params: apartment_params
+        # p 'response', response
+        expect(response.status).to eq(422)
+        # p "Response Body:", JSON.parse(response.body)
+      
+        apartment = JSON.parse(response.body)
+        expect(apartment['user_id']).to include("can't be blank")
+    end
+    it 'it is not valid if user_id is empty' do
+      apartment_params = {
+        apartment: {
+          street: '1513 Vietnam Drive',
+          unit: '1',
+          city: 'Strike City',
+          state: 'Delulu',
+          square_footage: 2000,
+          price: '4000',
+          bedrooms: 3,
+          bathrooms: 2,
+          pets: 'yes',
           image: nil,
           user_id: user.id
         }
