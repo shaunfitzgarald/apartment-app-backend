@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
-      origins 'apartment-app-frontend-shaunfitzgarald.onrender.com'
+      origins 'http://apartment-app-frontend-shaunfitzgarald.onrender.com'
       resource '*',
       headers: ["Authorization"],
       expose: ["Authorization"],
